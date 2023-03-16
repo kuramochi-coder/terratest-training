@@ -5,6 +5,16 @@
 *.so
 *.dylib
 
+# Terraform files
+.terraform
+terraform.tfstate
+terraform.tfvars
+terraform.tfvars.json
+*.tfstate*
+.terragrunt
+.terragrunt-cache
+.terraform.lock.hcl
+
 # Test binary, built with `go test -c`
 *.test
 
@@ -17,3 +27,6 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# Environment variables
+.env
