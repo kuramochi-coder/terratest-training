@@ -1,3 +1,4 @@
+//go:build azure || (azureslim && compute)
 // +build azure azureslim,compute
 
 // NOTE: We use build tags to differentiate azure testing because we currently do not have azure access setup for
@@ -20,7 +21,7 @@ func TestTerraformAzureExample(t *testing.T) {
 
 	uniquePostfix := random.UniqueId()
 
-	// website::tag::1:: Configure Terraform setting up a path to Terraform code.
+	// Configure Terraform setting up a path to Terraform code.
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
 		TerraformDir: "../../examples/azure/terraform-azure-example",
@@ -29,17 +30,17 @@ func TestTerraformAzureExample(t *testing.T) {
 		},
 	}
 
-	// website::tag::4:: At the end of the test, run `terraform destroy` to clean up any resources that were created
+	// At the end of the test, run `terraform destroy` to clean up any resources that were created
 	defer terraform.Destroy(t, terraformOptions)
 
-	// website::tag::2:: Run `terraform init` and `terraform apply`. Fail the test if there are any errors.
+	// Run `terraform init` and `terraform apply`. Fail the test if there are any errors.
 	terraform.InitAndApply(t, terraformOptions)
 
-	// website::tag::3:: Run `terraform output` to get the values of output variables
+	// Run `terraform output` to get the values of output variables
 	vmName := terraform.Output(t, terraformOptions, "vm_name")
 	resourceGroupName := terraform.Output(t, terraformOptions, "resource_group_name")
 
-	// website::tag::4:: Look up the size of the given Virtual Machine and ensure it matches the output.
+	// Look up the size of the given Virtual Machine and ensure it matches the output.
 	actualVMSize := azure.GetSizeOfVirtualMachine(t, vmName, resourceGroupName, "")
 	expectedVMSize := compute.VirtualMachineSizeTypes("Standard_B1s")
 	assert.Equal(t, expectedVMSize, actualVMSize)
