@@ -26,3 +26,9 @@ az account set -s <your_subscription_id>
 ```bash
 export ARM_SUBSCRIPTION_ID=<your_subscription_id>
 ```
+
+# Running the Tests
+## Run the Example Test
+```bash
+go test -v -timeout 30m
+```
