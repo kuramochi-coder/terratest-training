@@ -30,5 +30,5 @@ export ARM_SUBSCRIPTION_ID=<your_subscription_id>
 # Running the Tests
 ## Run the Example Test
 ```bash
-go test -v -timeout 30m
+go test -v test/azure/terraform_azure_example_test.go
 ```
