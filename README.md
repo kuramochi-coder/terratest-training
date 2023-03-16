@@ -14,6 +14,10 @@ brew install azure-cli
 ```bash
 az login
 ```
+## List Subscriptions
+```bash
+az account list
+```
 ## Set the Subscription ID
 ```bash
 az account set -s <your_subscription_id>
