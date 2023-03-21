@@ -32,7 +32,7 @@ func TestNetworkingResource(t *testing.T) {
 		assert.True(t, azure.SubnetExists(t, expectedSubnetName, expectedVNetName, expectedVnetRgName, SubscriptionID))
 	})
 
-	// Integrated network resource tests.
+	// Test for subnets.
 	t.Run("TestVirtualNetworksSubnets", func(t *testing.T) {
 		t.Parallel()
 		// Get the Virtual Network Subnets, check the Subnet exists and has the expected Address Prefix.
