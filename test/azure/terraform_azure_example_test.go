@@ -18,7 +18,7 @@ func TestTerraformAzureExample(t *testing.T) {
 	// Configure Terraform setting up a path to Terraform code.
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
-		TerraformDir: "../../examples/azure/terraform-azure-example",
+		TerraformDir: "../../infrastructure/azure/terraform-azure-example",
 		Vars: map[string]interface{}{
 			"postfix": uniquePostfix,
 		},

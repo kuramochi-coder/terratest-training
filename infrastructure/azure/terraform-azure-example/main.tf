@@ -29,7 +29,7 @@ terraform {
 
 resource "azurerm_resource_group" "main" {
   name     = "terratest-rg-${var.postfix}"
-  location = "East US"
+  location = "Southeast Asia"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
