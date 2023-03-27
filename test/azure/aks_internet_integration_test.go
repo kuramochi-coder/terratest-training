@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/gruntwork-io/terratest/modules/k8s"
+	"github.com/kuramochi-coder/terratest-training/src/utils"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
