@@ -16,7 +16,7 @@ func TestNetworkingResource(t *testing.T) {
 	expectedNsgName := "cri3-nw-bz-bastion01_nsg-nprod-004"
 	// Expected NSG rules count is final count of the number of custom rules applied by us + 6 default rules.
 	// e.g. 10 + 6 (default), so 16 should be used.
-	expectedNsgCount := 12
+	expectedNsgCount := 16
 	expectedSubnetRange := "192.168.5.0/26"
 	expectedVNetName := "cri3-bastion-nprd"
 	expectedSubnetName := "AzureBastionSubnet"
