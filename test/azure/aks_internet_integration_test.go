@@ -1,7 +1,6 @@
 package test
 
 import (
-	"fmt"
 	"os/exec"
 	"path/filepath"
 	"strings"
@@ -141,7 +140,7 @@ func TestAksIntegration(t *testing.T) {
 		if err != nil && curlOutput == nil {
 			t.Fatal(err)
 		}
-		fmt.Println(string(curlOutput))
+		t.Log(string(curlOutput))
 		assert.NotNil(t, string(curlOutput))
 	})
 
@@ -156,7 +155,7 @@ func TestAksIntegration(t *testing.T) {
 		if err != nil && curlOutput == nil {
 			t.Fatal(err)
 		}
-		fmt.Println(string(curlOutput))
+		t.Log(string(curlOutput))
 		assert.NotNil(t, string(curlOutput))
 	})
 }
