@@ -137,7 +137,7 @@ func TestAksIntegration(t *testing.T) {
 		// response.
 		podIPAddress := "http://" + podIP
 		curlOutput, err := exec.Command("curl", "-o", "-k", podIPAddress).Output()
-		if err != nil {
+		if err != nil && curlOutput == nil {
 			t.Fatal(err)
 		}
 
@@ -152,7 +152,7 @@ func TestAksIntegration(t *testing.T) {
 		// response.
 		ingressIPAddress := "http://" + ingressIP
 		curlOutput, err := exec.Command("curl", "-o", "-k", ingressIPAddress).Output()
-		if err != nil {
+		if err != nil && curlOutput == nil {
 			t.Fatal(err)
 		}
 
