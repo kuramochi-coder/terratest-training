@@ -20,6 +20,9 @@ func TestAksIntegration(t *testing.T) {
 	expectedRgName := "cri3-aks01_re1-ez-sit-004"
 	expectedClusterName := "cri3-aks01-ez-cls_r1-sit-004"
 
+	// NameSpace to use.
+	myNameSpace := "aksinternetns-rk"
+
 	// Get AKS credentials.
 	// This will run `az aks get-credentials --resource-group RESOURCE_GROUP --name CLUSTER_NAME`
 	// and fail the test if there are any errors.
@@ -34,7 +37,7 @@ func TestAksIntegration(t *testing.T) {
 	// To ensure we can reuse the resource config on the same cluster to test different scenarios, we setup a unique
 	// namespace for the resources for this test.
 	// Note that namespaces must be lowercase.
-	namespaceName := strings.ToLower("aksinternetns")
+	namespaceName := strings.ToLower(myNameSpace)
 
 	// Setup the kubectl config and context. Here we choose to use the defaults, which is:
 	// - HOME/.kube/config for the kubectl config file.
