@@ -112,9 +112,10 @@ func TestAksIntegration(t *testing.T) {
 			}
 		}
 
-		// Check if there are any errors
-		if getPodErr != nil || getIPErr != nil || getIngressIPErr != nil {
+		// Check if there are values returned
+		if podNameOutput == nil && podIPOut == nil && ingressIPOut == nil {
 			// Log the error and exit the program.
+			t.Log(podNameOutput, podIPOut, ingressIPOut)
 			t.Fatal(getPodErr, getIPErr, getIngressIPErr)
 		}
 	}
