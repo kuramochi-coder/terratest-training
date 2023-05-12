@@ -112,11 +112,11 @@ func TestAksIntegration(t *testing.T) {
 			}
 		}
 
-		// Log the error.
-		t.Log(getIPErr)
-
-		// Exit the program.
-		return
+		// Check if there are any errors
+		if getPodErr != nil || getIPErr != nil || getIngressIPErr != nil {
+			// Log the error and exit the program.
+			t.Fatal(getPodErr, getIPErr, getIngressIPErr)
+		}
 	}
 
 	// Test the kubernetes service is running.
