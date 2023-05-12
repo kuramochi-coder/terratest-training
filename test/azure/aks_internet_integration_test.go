@@ -136,10 +136,12 @@ func TestAksIntegration(t *testing.T) {
 		// Test the podIP for up to 5 minutes. This will only fail if we timeout waiting for the service to return a 200
 		// response.
 		podIPAddress := "http://" + podIP
-		curlOutput, curlErr := exec.Command("curl", "-o", "-k", podIPAddress).Output()
+		curlOutput, err := exec.Command("curl", "-o", "-k", podIPAddress).Output()
+		if err != nil {
+			t.Fatal(err)
+		}
 
 		assert.NotNil(t, string(curlOutput))
-		assert.Nil(t, curlErr)
 	})
 
 	// Test for AKS Connection from web tier.
@@ -149,9 +151,11 @@ func TestAksIntegration(t *testing.T) {
 		// Test the podIP for up to 5 minutes. This will only fail if we timeout waiting for the service to return a 200
 		// response.
 		ingressIPAddress := "http://" + ingressIP
-		curlOutput, curlErr := exec.Command("curl", "-o", "-k", ingressIPAddress).Output()
+		curlOutput, err := exec.Command("curl", "-o", "-k", ingressIPAddress).Output()
+		if err != nil {
+			t.Fatal(err)
+		}
 
 		assert.NotNil(t, string(curlOutput))
-		assert.Nil(t, curlErr)
 	})
 }
