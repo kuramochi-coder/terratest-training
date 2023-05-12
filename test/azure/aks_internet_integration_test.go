@@ -65,7 +65,7 @@ func TestAksIntegration(t *testing.T) {
 	service := k8s.GetService(t, options, "nginx-service")
 
 	// Calling Sleep method
-	time.Sleep(30 * time.Second)
+	time.Sleep(60 * time.Second)
 
 	// Get the pod name.
 	podNameOutput, getPodErr := exec.Command("kubectl", "get", "pods", "-n", namespaceName, "--no-headers", "-o", "custom-columns=\":metadata.name\"").Output()
@@ -89,7 +89,7 @@ func TestAksIntegration(t *testing.T) {
 
 		for i := 0; i < retries; i++ {
 			// Calling Sleep method
-			time.Sleep(10 * time.Second)
+			time.Sleep(30 * time.Second)
 
 			// Get the pod name.
 			podNameOutput, getPodErr = exec.Command("kubectl", "get", "pods", "-n", namespaceName, "--no-headers", "-o=custom-columns=\":metadata.name\"").Output()
